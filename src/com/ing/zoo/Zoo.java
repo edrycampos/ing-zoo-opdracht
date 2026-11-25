@@ -9,12 +9,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Zoo {
-    private static final String[] commands = {
-            "hello",
-            "give leaves",
-            "give meat",
-            "perform trick"
-    };
+    private static final String HELLO = "hello";
+    private static final String GIVE_LEAVES = "give leaves";
+    private static final String GIVE_MEAT = "give meat";
+    private static final String PERFORM_TRICK = "perform trick";
 
     public static void main(String[] args)
     {
@@ -60,58 +58,67 @@ public class Zoo {
 
     public static void handleCommand(String input, List<Animal> animals)
     {
-        if(input.equals(commands[0]))
+        switch (input)
         {
-            for (Animal animal: animals)
+            case HELLO -> greetAnimals(animals);
+            case GIVE_LEAVES -> feedHerbivores(animals);
+            case GIVE_MEAT -> feedCarnivores(animals);
+            case PERFORM_TRICK -> performTricks(animals);
+            default -> greetSpecificAnimal(input, animals);
+        }
+    }
+
+    private static void greetAnimals(List<Animal> animals)
+    {
+        for (Animal animal: animals)
+        {
+            animal.sayHello();
+        }
+    }
+
+    private static void greetSpecificAnimal(String input, List<Animal> animals)
+    {
+        for (Animal animal : animals)
+        {
+            if (input.equals(HELLO + " " + animal.getName()))
             {
                 animal.sayHello();
+                return;
             }
         }
-        else if (input.equals(commands[1]))
+
+        System.out.println("Unknown command: " + input);
+    }
+
+    private static void feedCarnivores(List<Animal> animals)
+    {
+        for (Animal animal: animals)
         {
-            for (Animal animal: animals)
+            if (animal instanceof Carnivore carnivore)
             {
-                if (animal instanceof Herbivore herbivore)
-                {
-                    herbivore.eatLeaves();
-                }
+                carnivore.eatMeat();
             }
         }
-        else if (input.equals(commands[2]))
+    }
+
+    private static void feedHerbivores(List<Animal> animals)
+    {
+        for (Animal animal: animals)
         {
-            for (Animal animal: animals)
+            if (animal instanceof Herbivore herbivore)
             {
-                if (animal instanceof Carnivore carnivore)
-                {
-                    carnivore.eatMeat();
-                }
+                herbivore.eatLeaves();
             }
         }
-        else if (input.equals(commands[3]))
+    }
+
+    private static void performTricks(List<Animal> animals)
+    {
+        for (Animal animal: animals)
         {
-            for (Animal animal: animals)
+            if (animal instanceof TrickPerformer trickPerformer)
             {
-                if (animal instanceof TrickPerformer trickPerformer)
-                {
-                    trickPerformer.performTrick();
-                }
-            }
-        }
-        else
-        {
-            boolean found = false;
-            for (Animal animal : animals)
-            {
-                if (input.equals(commands[0] + " " + animal.getName()))
-                {
-                    animal.sayHello();
-                    found = true;
-                    break;
-                }
-            }
-            if (!found)
-            {
-                System.out.println("Unknown command: " + input);
+                trickPerformer.performTrick();
             }
         }
     }
