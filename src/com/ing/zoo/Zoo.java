@@ -52,8 +52,18 @@ public class Zoo {
                 "zebra zebra",
                 "munch munch zank yee bra"
         );
+        Platypus perry = new Platypus(
+                "perry",
+                "grrumph",
+                "krrrrrrrrrrrr"
+        );
+        Seal finn = new Seal(
+                "finn",
+                "arf arf",
+                "eek eek"
+        );
 
-        return List.of(henk, elsa, dora, wally, marty);
+        return List.of(henk, elsa, dora, wally, marty, perry, finn);
     }
 
     public static void handleCommand(String input, List<Animal> animals)
@@ -118,6 +128,7 @@ public class Zoo {
         {
             if (animal instanceof TrickPerformer trickPerformer)
             {
+                System.out.print(animal.getName() + ": ");
                 trickPerformer.performTrick();
             }
         }

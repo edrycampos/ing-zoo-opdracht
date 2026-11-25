@@ -42,7 +42,9 @@ public class ZooTest {
                 "splash",
                 "splash",
                 "rraaarww",
-                "zebra zebra"
+                "zebra zebra",
+                "grrumph",
+                "arf arf"
         );
 
         Zoo.handleCommand(input, animals);
@@ -85,7 +87,9 @@ public class ZooTest {
                 System.lineSeparator(),
                 "nomnomnom thx mate",
                 "nomnomnom oink thx",
-                "nomnomnom oink wubalubadubdub"
+                "nomnomnom oink wubalubadubdub",
+                "krrrrrrrrrrrr",
+                "eek eek"
         );
 
         Zoo.handleCommand(input, animals);
@@ -97,22 +101,32 @@ public class ZooTest {
     void testPerformTrick()
     {
         input = "perform trick";
-        List<String> expected = List.of(
-                "jumps in tree",
-                "scratches ears",
-                "rolls in the mud",
-                "runs in circles"
+        List<String> expectedPig = List.of(
+                "dora: rolls in the mud",
+                "dora: runs in circles"
+        );
+        List<String> expectedTiger = List.of(
+                "wally: jumps in tree",
+                "wally: scratches ears"
+        );
+        List<String> expectedPlatypus = List.of(
+                "perry: puts hat on",
+                "perry: goes for a swim"
+        );
+        List<String> expectedSeal = List.of(
+                "finn: balances ball",
+                "finn: claps flippers"
         );
 
         Zoo.handleCommand(input, animals);
 
         String[] actual = output.toString().trim().split("\\R");
 
-        assertEquals(2, actual.length);
-        for (String line : actual)
-        {
-            assertTrue(expected.contains(line));
-        }
+        assertEquals(4, actual.length);
+        assertTrue(expectedPig.contains(actual[0]));
+        assertTrue(expectedTiger.contains(actual[1]));
+        assertTrue(expectedPlatypus.contains(actual[2]));
+        assertTrue(expectedSeal.contains(actual[3]));
     }
 
     @Test
