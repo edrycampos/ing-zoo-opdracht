@@ -21,4 +21,9 @@ public abstract class Animal {
     {
         return helloText;
     }
+
+    public String getName()
+    {
+        return name;
+    }
 }
