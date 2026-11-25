@@ -5,9 +5,11 @@ public abstract class Animal {
     public String helloText;
     public String eatText;
 
-    public Animal(String name)
+    public Animal(String name, String helloText, String eatText)
     {
         this.name = name;
+        this.helloText = helloText;
+        this.eatText = eatText;
     }
 
     public void sayHello()
@@ -15,18 +17,8 @@ public abstract class Animal {
         System.out.println(helloText);
     }
 
-    public void eatMeat()
-    {
-        System.out.println(eatText);
-    }
-
     public String getSayHello()
     {
         return helloText;
-    }
-
-    public String getEatText()
-    {
-        return eatText;
     }
 }
