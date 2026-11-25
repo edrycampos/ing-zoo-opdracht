@@ -1,8 +1,8 @@
 package com.ing.zoo.animals;
 
 public abstract class Animal {
-    public String name;
-    public String helloText;
+    private final String name;
+    private final String helloText;
     public String eatText;
 
     public Animal(String name, String helloText, String eatText)

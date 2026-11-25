@@ -6,7 +6,7 @@ import com.ing.zoo.behavior.TrickPerformer;
 import java.util.Random;
 
 public class Seal extends Animal implements Carnivore, TrickPerformer {
-    public String trick;
+    private String trick;
 
     public Seal(
             String name,

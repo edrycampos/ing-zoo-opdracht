@@ -6,7 +6,7 @@ import com.ing.zoo.behavior.TrickPerformer;
 import java.util.Random;
 
 public class Tiger extends Animal implements Carnivore, TrickPerformer {
-    public String trick;
+    private String trick;
 
     public Tiger(String name, String helloText, String eatText)
     {

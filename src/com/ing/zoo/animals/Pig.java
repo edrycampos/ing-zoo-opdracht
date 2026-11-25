@@ -7,8 +7,8 @@ import com.ing.zoo.behavior.TrickPerformer;
 import java.util.Random;
 
 public class Pig extends Animal implements Carnivore, Herbivore, TrickPerformer {
-    public String trick;
-    public String eatMeatText;
+    private String trick;
+    private final String eatMeatText;
 
     public Pig(String name, String helloText, String eatText, String eatMeatText)
     {

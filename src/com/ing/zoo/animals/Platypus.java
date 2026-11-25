@@ -6,7 +6,7 @@ import com.ing.zoo.behavior.TrickPerformer;
 import java.util.Random;
 
 public class Platypus extends Animal implements Carnivore, TrickPerformer {
-    String trick;
+    private String trick;
 
     public Platypus(
             String name,
