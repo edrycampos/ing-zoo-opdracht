@@ -4,14 +4,11 @@ import com.ing.zoo.animals.*;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Random;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class AnimalTest {
     public String helloText;
     public String eatText;
-    public String trick;
     public String eatMeatText;
 
     @Test
