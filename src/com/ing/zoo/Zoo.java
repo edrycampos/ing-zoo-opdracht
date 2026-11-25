@@ -1,5 +1,7 @@
 package com.ing.zoo;
 
+import com.ing.zoo.animals.*;
+
 import java.util.Scanner;
 
 public class Zoo {
@@ -11,8 +13,7 @@ public class Zoo {
         commands[2] = "give meat";
         commands[3] = "perform trick";
 
-        Lion henk = new Lion();
-        henk.name = "henk";
+        Animal henk = new Lion("henk");
         Hippo elsa = new Hippo();
         elsa.name = "elsa";
         Pig dora = new Pig();
