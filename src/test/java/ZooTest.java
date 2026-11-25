@@ -100,16 +100,19 @@ public class ZooTest {
         List<String> expected = List.of(
                 "jumps in tree",
                 "scratches ears",
-                "does a backflip",
-                "stands on one leg"
+                "rolls in the mud",
+                "runs in circles"
         );
 
         Zoo.handleCommand(input, animals);
 
-        String actual = output.toString().trim();
-        assertTrue(
-                expected.contains(actual)
-        );
+        String[] actual = output.toString().trim().split("\\R");
+
+        assertEquals(2, actual.length);
+        for (String line : actual)
+        {
+            assertTrue(expected.contains(line));
+        }
     }
 
     @Test
